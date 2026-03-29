@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Euro Gold</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Montserrat;
+  background:#0f0800;
+  color:#F0D080;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  background:#0a0600;
+  border-bottom:1px solid rgba(201,150,42,.2);
+}
+nav a{
+  color:#F0D080;
+  text-decoration:none;
+  margin:0 15px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+.hero h1{
+  font-family:'Cormorant Garamond';
+  font-size:60px;
+}
+.btn{
+  border:1px solid #C9962A;
+  padding:12px 25px;
+  color:#F0D080;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
+}
+
+/* GRID */
+.section-title{
+  text-align:center;
+  margin-top:50px;
+  font-size:26px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  padding:40px;
+}
+
+.card{
+  border:1px solid rgba(201,150,42,.2);
+  padding:15px;
+  transition:.3s;
+  background:#140c00;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#C9962A;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  background:#fff;
+}
+
+.price{
+  margin-top:10px;
+  font-size:18px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  border-top:1px solid rgba(201,150,42,.2);
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>EURO GOLD</strong></div>
+  <div>
+    <a href="#">Altın</a>
+    <a href="#">Gümüş</a>
+    <a href="#">Yatırım</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Altın & Gümüş Yatırım</h1>
+  <p>Kapalıçarşı fiyatları ile güvenli alışveriş</p>
+  <a href="#" class="btn">Ürünleri İncele</a>
+</section>
+
+<h2 class="section-title">Popüler Altın Ürünleri</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="tam1.jpg">
+    <h3>Tam Altın</h3>
+    <div class="price">₺ 16.200</div>
+  </div>
+
+  <div class="card">
+    <img src="ceyrek1.jpg">
+    <h3>Çeyrek Altın</h3>
+    <div class="price">₺ 4.050</div>
+  </div>
+
+  <div class="card">
+    <img src="1-gram-nadir-gold.jpg">
+    <h3>1 Gram Altın (Nadir)</h3>
+    <div class="price">₺ 2.450</div>
+  </div>
+
+</div>
+
+<h2 class="section-title">Yatırım Ürünleri</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="1-gram-nadir-gold.jpg">
+    <h3>Külçe Altın</h3>
+    <div class="price">₺ 2.450</div>
+  </div>
+
+  <div class="card">
+    <img src="ceyrek1.jpg">
+    <h3>Ziynet Altın</h3>
+    <div class="price">₺ 4.050</div>
+  </div>
+
+  <div class="card">
+    <img src="tam1.jpg">
+    <h3>Cumhuriyet Altını</h3>
+    <div class="price">₺ 16.200</div>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Euro Gold | Kapalıçarşı İstanbul
+</footer>
+
+</body>
+</html>
