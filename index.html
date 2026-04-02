@@ -4,379 +4,337 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Euro Gold — Kapalıçarşı Altın</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --gold:#C9962A;--gold-light:#E8BB5A;--gold-pale:#F5DFA0;
-  --dark:#0F0800;--dark2:#1A1000;--dark3:#221400;
-  --card-bg:rgba(25,14,0,0.85);--card-border:rgba(201,150,42,0.25);
-  --text-main:#F0D080;--text-sub:rgba(240,208,128,0.55);
-  --green:#4CAF50;--red:#EF5350;
+  --gold:#C9962A;--gold2:#E8BB5A;--gold3:#F5DFA0;
+  --dark:#0A0800;--dark2:#111000;--dark3:#1A1500;
+  --green:#22C55E;--red:#EF4444;
+  --text:#E8DCC8;--textsub:rgba(232,220,200,0.5);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;min-height:100vh;background:var(--dark);color:var(--text-main);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
 
-/* BG */
-.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
-.bg-img{position:absolute;inset:0;background:url('https://galatagreenlandhotel.com/wp-content/uploads/2025/07/Galata-Tower.webp') center/cover;opacity:0.07}
-.bg-grad{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(201,150,42,0.12) 0%,transparent 55%),linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%)}
+/* ── TOP BAR ── */
+.topbar{background:#050400;border-bottom:1px solid rgba(201,150,42,0.12);padding:8px 40px;display:flex;justify-content:space-between;align-items:center}
+.topbar-left{font-size:11px;color:var(--textsub);letter-spacing:0.5px}
+.topbar-left span{color:rgba(232,220,200,0.7)}
+.topbar-right{font-size:11px;color:var(--textsub);display:flex;align-items:center;gap:6px}
+.topbar-right svg{width:13px;height:13px;opacity:0.6}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:100;background:rgba(10,6,0,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,150,42,0.15)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-icon{width:36px;height:36px}
-.logo-icon svg{width:100%;height:100%}
-.logo-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--gold-light);letter-spacing:2px}
-.logo-sub{font-size:8px;font-weight:600;letter-spacing:3px;color:var(--text-sub);text-transform:uppercase;margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-sub);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--gold-light)}
-.nav-right{display:flex;align-items:center;gap:16px}
-.live-pill{display:flex;align-items:center;gap:6px;background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.25);border-radius:20px;padding:5px 12px}
-.live-dot{width:6px;height:6px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px #4CAF50}
-.live-txt{font-size:9px;font-weight:700;letter-spacing:2px;color:#4CAF50;text-transform:uppercase}
+nav{position:sticky;top:0;z-index:200;background:rgba(8,6,0,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,150,42,0.1)}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 40px;display:flex;align-items:center;height:64px;gap:40px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-logo-icon{width:28px;height:28px}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--gold2);letter-spacing:1px}
+.nav-links{display:flex;align-items:center;gap:32px;flex:1;justify-content:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--textsub);text-decoration:none;transition:color .2s;letter-spacing:0.3px}
+.nav-links a:hover,.nav-links a.active{color:var(--gold2)}
+.nav-links a.active{border-bottom:1px solid var(--gold2);padding-bottom:2px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.live-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px var(--green)}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-.nav-time{font-size:13px;font-weight:700;color:var(--gold-light);letter-spacing:2px;font-variant-numeric:tabular-nums}
+.live-txt{font-size:12px;font-weight:500;color:var(--green);letter-spacing:0.5px}
 
-/* ── HERO / FİYAT BANDI ── */
-.price-band{background:rgba(15,8,0,0.7);border-bottom:1px solid rgba(201,150,42,0.12);padding:10px 0;overflow:hidden;position:relative;z-index:10}
-.price-band-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:32px;align-items:center;overflow-x:auto;scrollbar-width:none}
-.price-band-inner::-webkit-scrollbar{display:none}
-.band-item{display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0}
-.band-name{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-sub)}
-.band-val{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--gold-light)}
-.band-chg{font-size:10px;font-weight:700}
-.band-chg.up{color:var(--green)}
-.band-chg.down{color:var(--red)}
-.band-sep{width:1px;height:24px;background:rgba(201,150,42,0.2);flex-shrink:0}
+/* ── FİYAT BANDI ── */
+.ticker-wrap{background:#050400;border-bottom:1px solid rgba(201,150,42,0.1);padding:9px 0;overflow:hidden;position:relative}
+.ticker-track{display:flex;gap:0;animation:ticker 30s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:8px;padding:0 28px;white-space:nowrap;border-right:1px solid rgba(201,150,42,0.1)}
+.t-name{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--textsub);text-transform:uppercase}
+.t-val{font-size:13px;font-weight:700;color:var(--text)}
+.t-chg{font-size:11px;font-weight:600}
+.t-chg.up{color:var(--green)}
+.t-chg.down{color:var(--red)}
 
 /* ── HERO ── */
-.hero{position:relative;z-index:10;padding:80px 32px 70px;text-align:center;max-width:1200px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,42,0.08);border:1px solid rgba(201,150,42,0.2);border-radius:20px;padding:6px 16px;margin-bottom:24px}
-.hero-badge-txt{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:600;color:var(--gold-light);line-height:1.1;margin-bottom:16px}
-.hero-title span{color:var(--gold-pale);opacity:0.4}
-.hero-sub{font-size:12px;font-weight:400;color:var(--text-sub);letter-spacing:2px;max-width:500px;margin:0 auto 36px}
-.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold-light)}
-.stat-lbl{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-sub);margin-top:2px}
+.hero{position:relative;min-height:500px;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,#0A0800 0%,#141000 40%,#1A1500 100%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,150,42,0.07) 0%,transparent 60%)}
+.hero-content{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:60px 40px;display:flex;align-items:center;justify-content:space-between;gap:60px;width:100%}
+.hero-text{flex:1;max-width:560px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,42,0.1);border:1px solid rgba(201,150,42,0.25);border-radius:20px;padding:5px 14px;margin-bottom:24px}
+.hero-badge-dot{width:6px;height:6px;background:var(--gold2);border-radius:50%}
+.hero-badge-txt{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,54px);font-weight:700;line-height:1.15;margin-bottom:10px;color:#fff}
+.hero-title em{font-style:italic;color:var(--gold2)}
+.hero-subtitle{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-style:italic;color:rgba(232,220,200,0.6);margin-bottom:20px;font-weight:400}
+.hero-desc{font-size:13px;color:var(--textsub);line-height:1.7;margin-bottom:32px;max-width:440px}
+.hero-btns{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);border:none;border-radius:6px;padding:12px 24px;color:#000;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.5px;transition:all .2s}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-secondary{background:transparent;border:1px solid rgba(201,150,42,0.4);border-radius:6px;padding:12px 24px;color:var(--gold2);font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.5px;transition:all .2s}
+.btn-secondary:hover{border-color:var(--gold2);background:rgba(201,150,42,0.07)}
+.hero-live{display:inline-flex;align-items:center;gap:10px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:8px;padding:10px 16px}
+.hero-live-lbl{font-size:10px;color:var(--textsub);letter-spacing:1px;text-transform:uppercase}
+.hero-live-val{font-size:15px;font-weight:700;color:var(--text)}
+.hero-live-chg{font-size:11px;font-weight:600;color:var(--green)}
 
-/* ── BÖLÜM BAŞLIĞI ── */
-.section{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:60px 32px}
+.hero-img-wrap{flex-shrink:0;width:340px;height:340px;background:rgba(201,150,42,0.05);border:1px solid rgba(201,150,42,0.2);border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-slide-dots{position:absolute;bottom:-24px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.hero-carousel{position:relative}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(201,150,42,0.25);cursor:pointer;transition:all .2s}
+.dot.active{background:var(--gold2);width:20px;border-radius:4px}
+
+/* ── SECTION ── */
+.section{max-width:1300px;margin:0 auto;padding:60px 40px}
 .sec-head{display:flex;align-items:center;gap:16px;margin-bottom:32px}
-.sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(201,150,42,0.35),transparent)}
-.sec-label{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
-.sec-line-left{flex:1;height:1px;background:linear-gradient(270deg,rgba(201,150,42,0.35),transparent)}
+.sec-line{width:40px;height:2px;background:var(--gold)}
+.sec-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text)}
+.sec-sub{font-size:11px;color:var(--textsub);letter-spacing:1px;margin-left:auto}
 
-/* ── ÜRÜN KARTLARI ── */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+/* ── ÜRÜN GRID ── */
+.products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.products-grid{grid-template-columns:repeat(2,1fr)}}
 
-.product-card{
-  background:var(--card-bg);
-  border:1px solid var(--card-border);
-  border-radius:16px;
-  overflow:hidden;
-  transition:transform .3s ease,border-color .3s,box-shadow .3s;
-  cursor:pointer;
-  backdrop-filter:blur(12px);
-}
-.product-card:hover{transform:translateY(-5px);border-color:rgba(201,150,42,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 30px rgba(201,150,42,0.06)}
+.pcard{background:#0F0C00;border:1px solid rgba(201,150,42,0.12);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .3s;position:relative}
+.pcard:hover{border-color:rgba(201,150,42,0.4);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.5)}
+.pcard-badge{position:absolute;top:10px;left:10px;z-index:2;background:var(--gold);color:#000;font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px}
+.pcard-badge.popular{background:rgba(201,150,42,0.15);border:1px solid rgba(201,150,42,0.35);color:var(--gold2)}
+.pcard-img{width:100%;height:160px;object-fit:cover;background:rgba(201,150,42,0.04);display:block}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.pcard:hover .pcard-img img{transform:scale(1.06)}
+.pcard-body{padding:14px}
+.pcard-ayar{font-size:9px;font-weight:600;letter-spacing:1.5px;color:var(--textsub);text-transform:uppercase;margin-bottom:5px}
+.pcard-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.2}
+.pcard-price{font-size:14px;font-weight:700;color:var(--gold2)}
+.pcard-price.up{color:var(--green)}
+.pcard-price.down{color:var(--red)}
+.pcard-chg{font-size:10px;font-weight:600;color:var(--textsub);margin-top:3px}
+.pcard-chg.up{color:var(--green)}
+.pcard-chg.down{color:var(--red)}
+.pcard-fiyatsor{font-size:12px;font-weight:600;color:var(--gold);margin-top:8px;letter-spacing:0.5px}
 
-.product-img{width:100%;height:200px;object-fit:cover;display:block;background:rgba(201,150,42,0.05);position:relative;overflow:hidden}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.product-card:hover .product-img img{transform:scale(1.05)}
-.product-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(201,150,42,0.08),rgba(201,150,42,0.03))}
-.product-img-placeholder svg{width:64px;height:64px;opacity:0.3}
-
-.product-body{padding:20px}
-.product-tag{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.product-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold-light);margin-bottom:4px;line-height:1.2}
-.product-desc{font-size:10px;color:var(--text-sub);line-height:1.6;margin-bottom:16px}
-.product-price-row{display:flex;align-items:flex-end;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(201,150,42,0.12)}
-.product-price-wrap{}
-.product-price-lbl{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-sub);margin-bottom:2px}
-.product-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold-light)}
-.product-price.up{color:var(--green)}
-.product-price.down{color:var(--red)}
-.product-change{font-size:10px;font-weight:600;color:var(--text-sub);margin-top:2px}
-.product-change.up{color:var(--green)}
-.product-change.down{color:var(--red)}
-.btn-detail{background:linear-gradient(135deg,rgba(201,150,42,0.2),rgba(201,150,42,0.08));border:1px solid rgba(201,150,42,0.35);border-radius:8px;padding:9px 18px;color:var(--gold-light);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;text-transform:uppercase}
-.btn-detail:hover{background:linear-gradient(135deg,rgba(201,150,42,0.35),rgba(201,150,42,0.15));border-color:rgba(201,150,42,0.6)}
-
-@keyframes flashUp{0%,100%{background:var(--card-bg)}50%{background:rgba(76,175,80,0.1)}}
-@keyframes flashDown{0%,100%{background:var(--card-bg)}50%{background:rgba(239,83,80,0.1)}}
+@keyframes flashUp{0%,100%{background:#0F0C00}50%{background:rgba(34,197,94,0.08)}}
+@keyframes flashDown{0%,100%{background:#0F0C00}50%{background:rgba(239,68,68,0.08)}}
 .flash-up{animation:flashUp 1s ease}
 .flash-down{animation:flashDown 1s ease}
 
-/* ── DÖVİZ BÖLÜMÜ ── */
-.forex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.forex-card{background:rgba(15,8,0,0.7);border:1px solid rgba(201,150,42,0.15);border-radius:12px;padding:18px;backdrop-filter:blur(8px);transition:border-color .2s}
-.forex-card:hover{border-color:rgba(201,150,42,0.35)}
-.forex-pair{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--text-sub);text-transform:uppercase;margin-bottom:10px}
-.forex-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold-light)}
-.forex-chg{font-size:10px;font-weight:600;color:var(--text-sub);margin-top:4px}
-.forex-chg.up{color:var(--green)}
-.forex-chg.down{color:var(--red)}
+/* ── DÖVİZ ── */
+.forex-bar{background:#070500;border-top:1px solid rgba(201,150,42,0.08);border-bottom:1px solid rgba(201,150,42,0.08);padding:28px 0}
+.forex-inner{max-width:1300px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fcard{background:#0F0C00;border:1px solid rgba(201,150,42,0.1);border-radius:10px;padding:16px 20px;transition:border-color .2s}
+.fcard:hover{border-color:rgba(201,150,42,0.3)}
+.fcard-pair{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--textsub);text-transform:uppercase;margin-bottom:8px}
+.fcard-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--text)}
+.fcard-chg{font-size:10px;font-weight:600;color:var(--textsub);margin-top:4px}
+.fcard-chg.up{color:var(--green)}
+.fcard-chg.down{color:var(--red)}
 
 /* ── ALARM ── */
-.alarm-section{background:rgba(15,8,0,0.6);border-top:1px solid rgba(201,150,42,0.1);border-bottom:1px solid rgba(201,150,42,0.1)}
-.alarm-inner{max-width:1200px;margin:0 auto;padding:50px 32px}
-.alarm-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold-light);margin-bottom:6px}
-.alarm-desc{font-size:11px;color:var(--text-sub);letter-spacing:1px;margin-bottom:24px}
+.alarm-wrap{background:#070500;border-top:1px solid rgba(201,150,42,0.08)}
+.alarm-inner{max-width:1300px;margin:0 auto;padding:50px 40px}
+.alarm-head{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px}
+.alarm-sub{font-size:11px;color:var(--textsub);letter-spacing:0.5px;margin-bottom:24px}
 .alarm-form{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .ff{display:flex;flex-direction:column;gap:6px}
-.ff label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(201,150,42,0.5)}
-.ff select,.ff input{background:rgba(201,150,42,0.05);border:1px solid rgba(201,150,42,0.2);border-radius:8px;padding:10px 14px;color:var(--gold-light);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;outline:none;transition:border-color .2s;min-width:140px}
+.ff label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--textsub)}
+.ff select,.ff input{background:rgba(255,255,255,0.04);border:1px solid rgba(201,150,42,0.18);border-radius:7px;padding:10px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:12px;font-weight:500;outline:none;transition:border-color .2s;min-width:140px}
 .ff select:focus,.ff input:focus{border-color:rgba(201,150,42,0.5)}
-.ff select option{background:#1A1000}
-.btn-alarm{background:linear-gradient(135deg,rgba(201,150,42,0.22),rgba(201,150,42,0.08));border:1px solid rgba(201,150,42,0.4);border-radius:8px;padding:10px 22px;color:var(--gold-light);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;text-transform:uppercase;transition:all .2s}
-.btn-alarm:hover{background:linear-gradient(135deg,rgba(201,150,42,0.38),rgba(201,150,42,0.18));border-color:rgba(201,150,42,0.65)}
+.ff select option{background:#0F0C00}
+.btn-alarm{background:var(--gold);border:none;border-radius:7px;padding:10px 22px;color:#000;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;transition:all .2s}
+.btn-alarm:hover{background:var(--gold2)}
 .alarm-list{margin-top:16px;display:flex;flex-direction:column;gap:8px}
-.alarm-item{display:flex;justify-content:space-between;align-items:center;background:rgba(201,150,42,0.04);border:1px solid rgba(201,150,42,0.12);border-radius:8px;padding:12px 16px}
-.alarm-info{font-size:12px;font-weight:600;color:var(--gold-light)}
-.alarm-time{font-size:9px;color:var(--text-sub);margin-top:2px;letter-spacing:1px}
-.btn-del{background:rgba(239,83,80,0.08);border:1px solid rgba(239,83,80,0.2);border-radius:6px;padding:5px 12px;color:#EF9A9A;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;cursor:pointer;transition:all .2s}
-.btn-del:hover{background:rgba(239,83,80,0.18)}
+.alarm-item{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(201,150,42,0.1);border-radius:8px;padding:12px 16px}
+.alarm-info{font-size:12px;font-weight:600;color:var(--text)}
+.alarm-time{font-size:9px;color:var(--textsub);margin-top:2px}
+.btn-del{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:5px;padding:5px 12px;color:#FCA5A5;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-del:hover{background:rgba(239,68,68,0.18)}
 
 /* ── FOOTER ── */
-footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px solid rgba(201,150,42,0.12);padding:40px 32px 24px}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap;gap:24px}
-.footer-brand .logo-name{font-size:20px}
-.footer-brand p{font-size:10px;color:var(--text-sub);line-height:1.7;margin-top:10px;max-width:260px}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(201,150,42,0.08);flex-wrap:wrap;gap:10px}
-.footer-copy{font-size:10px;color:var(--text-sub);letter-spacing:1px}
-.btn-refresh{background:transparent;border:1px solid rgba(201,150,42,0.2);border-radius:6px;padding:6px 14px;color:var(--text-sub);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .2s}
-.btn-refresh:hover{border-color:rgba(201,150,42,0.45);color:var(--gold-light)}
+footer{background:#030200;border-top:1px solid rgba(201,150,42,0.1);padding:36px 40px 24px}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-ticker{display:flex;align-items:center;gap:8px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(201,150,42,0.08)}
+.footer-ticker-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+.footer-ticker-txt{font-size:10px;color:var(--textsub);letter-spacing:1.5px;text-transform:uppercase}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:11px;color:var(--textsub)}
+.btn-refresh{background:transparent;border:1px solid rgba(201,150,42,0.18);border-radius:5px;padding:6px 14px;color:var(--textsub);font-family:'Inter',sans-serif;font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:0.5px}
+.btn-refresh:hover{border-color:rgba(201,150,42,0.45);color:var(--gold2)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinning{animation:spin .6s linear}
 
-/* ERROR */
-.error-bar{background:rgba(183,28,28,.15);border:1px solid rgba(183,28,28,.3);border-radius:8px;padding:10px 16px;font-size:11px;color:#FFCDD2;font-weight:600;display:none;position:relative;z-index:10;max-width:1200px;margin:0 auto 0;padding:10px 32px}
-
-/* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:rgba(10,6,0,0.97);border:1px solid rgba(201,150,42,0.35);border-radius:10px;padding:14px 18px;min-width:220px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;backdrop-filter:blur(16px)}
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:#0F0C00;border:1px solid rgba(201,150,42,0.3);border-radius:10px;padding:14px 18px;min-width:220px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;backdrop-filter:blur(16px)}
 .toast.show{transform:translateY(0);opacity:1}
-.toast-title{font-size:12px;font-weight:700;color:var(--gold-light);margin-bottom:3px;letter-spacing:1px}
-.toast-msg{font-size:11px;color:var(--text-sub)}
+.toast-title{font-size:12px;font-weight:700;color:var(--gold2);margin-bottom:3px}
+.toast-msg{font-size:11px;color:var(--textsub)}
 
-/* MOBİL */
+/* ── MOBİL ── */
 @media(max-width:900px){
-  .products-grid{grid-template-columns:repeat(2,1fr)}
-  .forex-grid{grid-template-columns:repeat(2,1fr)}
+  .topbar{padding:7px 16px}
+  .nav-inner{padding:0 16px;gap:20px}
   .nav-links{display:none}
-}
-@media(max-width:600px){
-  .nav-inner{padding:0 16px}
-  .price-band-inner{padding:0 16px}
-  .hero{padding:50px 16px 40px}
+  .hero-content{flex-direction:column;padding:40px 16px;gap:32px}
+  .hero-img-wrap{width:100%;max-width:320px;height:260px}
   .section{padding:40px 16px}
-  .products-grid{grid-template-columns:1fr}
-  .forex-grid{grid-template-columns:repeat(2,1fr)}
+  .forex-inner{padding:0 16px;grid-template-columns:repeat(2,1fr)}
   .alarm-inner{padding:36px 16px}
   .alarm-form{flex-direction:column}
-  .ff select,.ff input{min-width:100%;width:100%}
-  footer{padding:32px 16px 20px}
-  .hero-stats{gap:24px}
-  .error-bar{padding:10px 16px;margin:0 16px}
+  .ff select,.ff input{min-width:100%}
+  footer{padding:28px 16px 16px}
+}
+@media(max-width:500px){
+  .hero-title{font-size:28px}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
 
-<div class="bg"><div class="bg-img"></div><div class="bg-grad"></div></div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>Kapalıçarşı, İstanbul</span> &nbsp;|&nbsp; Pazartesi 9:00 – Cuma 17:00
+  </div>
+  <div class="topbar-right">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.43-.43a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+    +90 (212) 512 XX XX
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#">
-      <div class="logo-icon">
-        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="18" cy="18" r="16" stroke="#C9962A" stroke-width="1" opacity="0.5"/>
-          <polygon points="18,5 21,14 31,14 23,20 26,30 18,24 10,30 13,20 5,14 15,14" fill="none" stroke="#E8BB5A" stroke-width="1.2" opacity="0.9"/>
-          <circle cx="18" cy="18" r="3" fill="#C9962A"/>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12" stroke="#C9962A" stroke-width="1" opacity="0.4"/>
+          <polygon points="14,3 17,11 25,11 19,16 21,24 14,19 7,24 9,16 3,11 11,11" fill="none" stroke="#E8BB5A" stroke-width="1.2"/>
+          <circle cx="14" cy="14" r="3" fill="#C9962A"/>
         </svg>
       </div>
-      <div>
-        <div class="logo-name">Euro Gold</div>
-        <div class="logo-sub">Kapalıçarşı · İstanbul</div>
-      </div>
+      <span class="nav-logo-name">Euro Gold</span>
     </a>
     <div class="nav-links">
+      <a href="#" class="active">Ana Sayfa</a>
       <a href="#urunler">Ürünler</a>
-      <a href="#doviz">Döviz</a>
-      <a href="#alarm">Alarm</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#alarm">İletişim</a>
     </div>
     <div class="nav-right">
-      <div class="live-pill"><div class="live-dot"></div><span class="live-txt">Canlı</span></div>
-      <div class="nav-time" id="nav-time">--:--:--</div>
+      <div class="live-dot"></div>
+      <span class="live-txt">Canlı Fiyatlar</span>
     </div>
   </div>
 </nav>
 
-<!-- FİYAT BANDI -->
-<div class="price-band">
-  <div class="price-band-inner">
-    <div class="band-item"><span class="band-name">Gram</span><span class="band-val" id="band-gram">—</span><span class="band-chg" id="band-gram-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">Çeyrek</span><span class="band-val" id="band-ceyrek">—</span><span class="band-chg" id="band-ceyrek-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">Yarım</span><span class="band-val" id="band-yarim">—</span><span class="band-chg" id="band-yarim-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">Tam</span><span class="band-val" id="band-tam">—</span><span class="band-chg" id="band-tam-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">Ons</span><span class="band-val" id="band-ons">—</span><span class="band-chg" id="band-ons-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">USD</span><span class="band-val" id="band-usd">—</span><span class="band-chg" id="band-usd-chg"></span></div>
-    <div class="band-sep"></div>
-    <div class="band-item"><span class="band-name">EUR</span><span class="band-val" id="band-eur">—</span><span class="band-chg" id="band-eur-chg"></span></div>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker-track">
+    <!-- JS ile doldurulacak, 2x tekrar -->
   </div>
 </div>
 
-<div class="error-bar" id="error-bar"></div>
-
-<!-- HERO -->
+<!-- HERO (Carousel) -->
 <div class="hero">
-  <div class="hero-badge"><span class="hero-badge-txt">✦ Kapalıçarşı'nın Güvenilir Adresi</span></div>
-  <h1 class="hero-title">Gerçek Zamanlı<br>Altın Fiyatları</h1>
-  <p class="hero-sub">Kapalıçarşı canlı verileri ile anlık güncellenen fiyatlar</p>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">Ürün Çeşidi</div></div>
-    <div class="stat"><div class="stat-val">7/24</div><div class="stat-lbl">Canlı Fiyat</div></div>
-    <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Güvenilir</div></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><div class="hero-badge-dot"></div><span class="hero-badge-txt">✦ Özel Tasarım</span></div>
+      <h1 class="hero-title" id="hero-title">Cumhuriyet <em>Altını</em></h1>
+      <div class="hero-subtitle" id="hero-subtitle">22 Ayar Sikke</div>
+      <p class="hero-desc" id="hero-desc">Türkiye'nin simgesi, koleksiyon değeri taşıyan özel sikke. Hem yatırım hem hatıra değeri ile benzersiz bir tercih.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="scrollToProducts()">Ürünleri Gör</button>
+        <button class="btn-secondary" onclick="scrollToAlarm()">Fiyat Al</button>
+      </div>
+      <div class="hero-live">
+        <div>
+          <div class="hero-live-lbl">Özel Fiyatlandırma</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:2px">
+            <span class="hero-live-val" id="hero-live-val">—</span>
+            <span class="hero-live-chg" id="hero-live-chg">▲ Canlı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-carousel">
+      <div class="hero-img-wrap" id="hero-img-wrap">
+        <img id="hero-img" src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=600&q=80" alt="Cumhuriyet Altını" onerror="this.style.display='none'">
+      </div>
+      <div class="hero-slide-dots" style="position:relative;bottom:auto;margin-top:16px">
+        <div class="dot active" onclick="heroGo(0)"></div>
+        <div class="dot" onclick="heroGo(1)"></div>
+        <div class="dot" onclick="heroGo(2)"></div>
+        <div class="dot" onclick="heroGo(3)"></div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ÜRÜNLER -->
 <div class="section" id="urunler">
   <div class="sec-head">
-    <div class="sec-line-left"></div>
-    <span class="sec-label">✦ Ürünlerimiz</span>
     <div class="sec-line"></div>
+    <span class="sec-title">Ürünlerimiz</span>
+    <span class="sec-sub">Altın ve gümüş fiyatları canlı güncellenmektedir</span>
   </div>
   <div class="products-grid">
 
-    <!-- GRAM ALTIN -->
-    <div class="product-card" id="card-gram">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=600&q=80" alt="Gram Altın" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'20\'>Au</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">24 Ayar · 995 Milyem</div>
-        <div class="product-name">Gram Altın</div>
-        <div class="product-desc">Saf altın yatırımı için en esnek seçenek. İstediğiniz miktarda alım imkânı.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-gram">—</div>
-            <div class="product-change" id="change-gram"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-gram">
+      <div class="pcard-badge">Çok Satan</div>
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400&q=80" alt="Gram Altın" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">24 Ayar · 995 M.</div>
+        <div class="pcard-name">Gram Altın</div>
+        <div class="pcard-price" id="buy-gram">—</div>
+        <div class="pcard-chg" id="change-gram"></div>
       </div>
     </div>
 
-    <!-- ÇEYREK ALTIN -->
-    <div class="product-card" id="card-ceyrek">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1624365168968-f2a1d64d63d0?w=600&q=80" alt="Çeyrek Altın" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'20\'>¼</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">22 Ayar · Ziynet</div>
-        <div class="product-name">Çeyrek Altın</div>
-        <div class="product-desc">Klasik Türk altın geleneğinin vazgeçilmezi. Düğün ve özel günler için ideal.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-ceyrek">—</div>
-            <div class="product-change" id="change-ceyrek"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-ceyrek">
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1624365168968-f2a1d64d63d0?w=400&q=80" alt="Çeyrek Altın" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">22 Ayar · Ziynet</div>
+        <div class="pcard-name">Çeyrek Altın</div>
+        <div class="pcard-price" id="buy-ceyrek">—</div>
+        <div class="pcard-chg" id="change-ceyrek"></div>
       </div>
     </div>
 
-    <!-- YARIM ALTIN -->
-    <div class="product-card" id="card-yarim">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1551135049-8a33b5883817?w=600&q=80" alt="Yarım Altın" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'20\'>½</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">22 Ayar · Ziynet</div>
-        <div class="product-name">Yarım Altın</div>
-        <div class="product-desc">Orta ölçekli yatırım için tercih edilen geleneksel Türk altını.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-yarim">—</div>
-            <div class="product-change" id="change-yarim"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-yarim">
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1551135049-8a33b5883817?w=400&q=80" alt="Yarım Altın" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">22 Ayar · Ziynet</div>
+        <div class="pcard-name">Yarım Altın</div>
+        <div class="pcard-price" id="buy-yarim">—</div>
+        <div class="pcard-chg" id="change-yarim"></div>
       </div>
     </div>
 
-    <!-- TAM ALTIN -->
-    <div class="product-card" id="card-tam">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=600&q=80" alt="Tam Altın" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'20\'>1</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">22 Ayar · Ziynet</div>
-        <div class="product-name">Tam Altın</div>
-        <div class="product-desc">Büyük yatırımlar için güvenilir tercih. Yüksek likidite ve kolay alım-satım.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-tam">—</div>
-            <div class="product-change" id="change-tam"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-tam">
+      <div class="pcard-badge popular">Popüler</div>
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=400&q=80" alt="Tam Altın" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">22 Ayar · Ziynet</div>
+        <div class="pcard-name">Tam Altın</div>
+        <div class="pcard-price" id="buy-tam">—</div>
+        <div class="pcard-chg" id="change-tam"></div>
       </div>
     </div>
 
-    <!-- CUMHURİYET ALTINI -->
-    <div class="product-card" id="card-cumhuriyet">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=600&q=80" alt="Cumhuriyet Altını" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'16\'>CUM</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">22 Ayar · Sikke</div>
-        <div class="product-name">Cumhuriyet Altını</div>
-        <div class="product-desc">Türkiye'nin simgesi. Hem yatırım hem koleksiyon değeri taşıyan özel sikke.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-cumhuriyet">—</div>
-            <div class="product-change" id="change-cumhuriyet"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-cumhuriyet">
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=400&q=80" alt="Cumhuriyet Altını" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">22 Ayar · Sikke</div>
+        <div class="pcard-name">Cumhuriyet Altını</div>
+        <div class="pcard-price" id="buy-cumhuriyet">—</div>
+        <div class="pcard-chg" id="change-cumhuriyet"></div>
       </div>
     </div>
 
-    <!-- HAS ALTIN -->
-    <div class="product-card" id="card-ons">
-      <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1607292803062-5b8ff0531b88?w=600&q=80" alt="Has Altın" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-img-placeholder\'><svg viewBox=\'0 0 64 64\' fill=\'none\'><circle cx=\'32\' cy=\'32\' r=\'28\' stroke=\'#C9962A\' stroke-width=\'2\'/><text x=\'50%\' y=\'55%\' text-anchor=\'middle\' fill=\'#C9962A\' font-size=\'16\'>HAS</text></svg></div>'">
-      </div>
-      <div class="product-body">
-        <div class="product-tag">24 Ayar · 999.9 Milyem</div>
-        <div class="product-name">Has Altın (Ons)</div>
-        <div class="product-desc">Uluslararası standartlarda saf altın. Küresel piyasalarda işlem gören premium yatırım aracı.</div>
-        <div class="product-price-row">
-          <div class="product-price-wrap">
-            <div class="product-price-lbl">Alış Fiyatı</div>
-            <div class="product-price" id="buy-ons">—</div>
-            <div class="product-change" id="change-ons"></div>
-          </div>
-          <button class="btn-detail">İncele</button>
-        </div>
+    <div class="pcard" id="card-ons">
+      <div class="pcard-img"><img src="https://images.unsplash.com/photo-1607292803062-5b8ff0531b88?w=400&q=80" alt="Has Altın" onerror="this.parentElement.style.background='rgba(201,150,42,0.06)'"></div>
+      <div class="pcard-body">
+        <div class="pcard-ayar">24 Ayar · 999.9</div>
+        <div class="pcard-name">Has Altın (Ons)</div>
+        <div class="pcard-price" id="buy-ons">—</div>
+        <div class="pcard-chg" id="change-ons"></div>
       </div>
     </div>
 
@@ -384,30 +342,24 @@ footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px s
 </div>
 
 <!-- DÖVİZ -->
-<div class="section" id="doviz" style="padding-top:0">
-  <div class="sec-head">
-    <div class="sec-line-left"></div>
-    <span class="sec-label">✦ Döviz Kurları</span>
-    <div class="sec-line"></div>
-  </div>
-  <div class="forex-grid">
-    <div class="forex-card"><div class="forex-pair">USD / TRY</div><div class="forex-val" id="usd-val">—</div><div class="forex-chg" id="usd-chg"></div></div>
-    <div class="forex-card"><div class="forex-pair">EUR / TRY</div><div class="forex-val" id="eur-val">—</div><div class="forex-chg" id="eur-chg"></div></div>
-    <div class="forex-card"><div class="forex-pair">GBP / TRY</div><div class="forex-val" id="gbp-val">—</div><div class="forex-chg" id="gbp-chg"></div></div>
-    <div class="forex-card"><div class="forex-pair">ONS / USD</div><div class="forex-val" id="xau-val">—</div><div class="forex-chg" id="xau-chg"></div></div>
+<div class="forex-bar">
+  <div class="forex-inner">
+    <div class="fcard"><div class="fcard-pair">USD / TRY</div><div class="fcard-val" id="usd-val">—</div><div class="fcard-chg" id="usd-chg"></div></div>
+    <div class="fcard"><div class="fcard-pair">EUR / TRY</div><div class="fcard-val" id="eur-val">—</div><div class="fcard-chg" id="eur-chg"></div></div>
+    <div class="fcard"><div class="fcard-pair">GBP / TRY</div><div class="fcard-val" id="gbp-val">—</div><div class="fcard-chg" id="gbp-chg"></div></div>
+    <div class="fcard"><div class="fcard-pair">ONS / USD</div><div class="fcard-val" id="xau-val">—</div><div class="fcard-chg" id="xau-chg"></div></div>
   </div>
 </div>
 
 <!-- ALARM -->
-<div class="alarm-section" id="alarm">
+<div class="alarm-wrap" id="alarm">
   <div class="alarm-inner">
     <div class="sec-head" style="margin-bottom:20px">
-      <div class="sec-line-left"></div>
-      <span class="sec-label">✦ Fiyat Alarmı</span>
       <div class="sec-line"></div>
+      <span class="sec-title">Fiyat Alarmı</span>
     </div>
-    <div class="alarm-title">Alarm Kur</div>
-    <div class="alarm-desc">Fiyat belirlediğin seviyeye ulaştığında anında bildirim al</div>
+    <div class="alarm-head">Alarm Kur</div>
+    <div class="alarm-sub">Fiyat belirlediğin seviyeye ulaştığında anında bildirim al</div>
     <div class="alarm-form">
       <div class="ff"><label>Altın Türü</label>
         <select id="alarm-type">
@@ -415,8 +367,8 @@ footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px s
           <option value="ceyrek">Çeyrek Altın</option>
           <option value="yarim">Yarım Altın</option>
           <option value="tam">Tam Altın</option>
-          <option value="ons">Has Altın (Ons)</option>
           <option value="cumhuriyet">Cumhuriyet Altını</option>
+          <option value="ons">Has Altın (Ons)</option>
         </select>
       </div>
       <div class="ff"><label>Koşul</label>
@@ -426,7 +378,7 @@ footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px s
         </select>
       </div>
       <div class="ff"><label>Hedef Fiyat (₺)</label>
-        <input type="number" id="alarm-price" placeholder="örn: 3500" step="1">
+        <input type="number" id="alarm-price" placeholder="örn: 7000" step="1">
       </div>
       <button class="btn-alarm" onclick="addAlarm()">+ Alarm Ekle</button>
     </div>
@@ -437,11 +389,9 @@ footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px s
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#E8BB5A;letter-spacing:2px">Euro Gold</div>
-        <p>Kapalıçarşı'nın köklü altın uzmanı. Güvenilir alım-satım, anlık fiyatlar ve profesyonel hizmet.</p>
-      </div>
+    <div class="footer-ticker">
+      <div class="footer-ticker-dot"></div>
+      <span class="footer-ticker-txt">Altın ve gümüş fiyatları canlı güncellenmektedir</span>
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Euro Gold · Kapalıçarşı İstanbul · Tüm hakları saklıdır</span>
@@ -458,39 +408,73 @@ footer{position:relative;z-index:10;background:rgba(8,4,0,0.95);border-top:1px s
 <script>
 const BASE='';
 const prev={},cur={};
-const typeLabels={gram:'Gram',ceyrek:'Çeyrek',yarim:'Yarım',tam:'Tam',ons:'Has Altın',cumhuriyet:'Cumhuriyet'};
-
-setInterval(()=>{document.getElementById('nav-time').textContent=new Date().toLocaleTimeString('tr-TR')},1000);
-document.getElementById('nav-time').textContent=new Date().toLocaleTimeString('tr-TR');
+const typeLabels={gram:'Gram Altın',ceyrek:'Çeyrek Altın',yarim:'Yarım Altın',tam:'Tam Altın',ons:'Has Altın',cumhuriyet:'Cumhuriyet Altını'};
 
 function fmt(n,dec=0){return parseFloat(n).toLocaleString('tr-TR',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
 
-function setBand(id,val,prevVal,dec=0,sym='₺'){
-  const el=document.getElementById('band-'+id);
-  const chgEl=document.getElementById('band-'+id+'-chg');
-  if(!el||!val)return;
-  el.textContent=(id==='ons'?'$':'')+fmt(val,dec)+(id!=='ons'?' ₺':'');
-  if(prevVal){
-    const diff=val-prevVal,up=diff>=0;
-    if(chgEl){chgEl.textContent=(up?'▲':' ▼')+fmt(Math.abs(diff),dec);chgEl.className='band-chg '+(up?'up':'down');}
-  }
+// TICKER
+const tickerItems=[
+  {id:'usd',name:'EUR/TRY',dec:4,sym:'₺'},
+  {id:'gram',name:'GRAM ALTIN',dec:0,sym:'₺'},
+  {id:'ceyrek',name:'ÇEYREK',dec:0,sym:'₺'},
+  {id:'yarim',name:'YARIM',dec:0,sym:'₺'},
+  {id:'tam',name:'TAM ALTIN',dec:0,sym:'₺'},
+  {id:'cumhuriyet',name:'CUMHURİYET',dec:0,sym:'₺'},
+  {id:'ons',name:'HAS ALTIN',dec:2,sym:'$'},
+];
+function buildTicker(p){
+  const items=tickerItems.map(t=>{
+    const val=t.id==='usd'?p.eur:p[t.id];
+    if(!val)return '';
+    const buying=val.buying;
+    const prevV=prev['_t_'+t.id]||buying;
+    const diff=buying-prevV,up=diff>=0;
+    prev['_t_'+t.id]=buying;
+    const valStr=(t.sym==='$'?'$ ':'')+fmt(buying,t.dec)+(t.sym==='₺'?' ₺':'');
+    const chgStr=(up?'▲':'▼')+' '+(up?'+':'')+fmt(Math.abs(buying-prevV)||0,t.dec)+'%';
+    return `<div class="ticker-item"><span class="t-name">${t.name}</span><span class="t-val">${valStr}</span><span class="t-chg ${up?'up':'down'}">${chgStr}</span></div>`;
+  }).join('');
+  const track=document.getElementById('ticker-track');
+  if(track)track.innerHTML=items+items; // 2x loop
 }
+
+// HERO CAROUSEL
+const heroSlides=[
+  {title:'Cumhuriyet <em>Altını</em>',sub:'22 Ayar Sikke',desc:'Türkiye\'nin simgesi, koleksiyon değeri taşıyan özel sikke.',key:'cumhuriyet',img:'https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=600&q=80'},
+  {title:'Gram <em>Altın</em>',sub:'24 Ayar · 995 Milyem',desc:'Saf altın yatırımı için en esnek ve güvenilir seçenek.',key:'gram',img:'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=600&q=80'},
+  {title:'Çeyrek <em>Altın</em>',sub:'22 Ayar · Ziynet',desc:'Klasik Türk altın geleneğinin vazgeçilmezi.',key:'ceyrek',img:'https://images.unsplash.com/photo-1624365168968-f2a1d64d63d0?w=600&q=80'},
+  {title:'Has Altın <em>(Ons)</em>',sub:'24 Ayar · 999.9 Milyem',desc:'Uluslararası standartlarda premium yatırım aracı.',key:'ons',img:'https://images.unsplash.com/photo-1607292803062-5b8ff0531b88?w=600&q=80'},
+];
+let heroIdx=0;
+function heroGo(i){
+  heroIdx=i;
+  const s=heroSlides[i];
+  document.getElementById('hero-title').innerHTML=s.title;
+  document.getElementById('hero-subtitle').textContent=s.sub;
+  document.getElementById('hero-desc').textContent=s.desc;
+  document.getElementById('hero-img').src=s.img;
+  const val=cur[s.key];
+  if(val){document.getElementById('hero-live-val').textContent=fmt(val,s.key==='ons'?2:0)+(s.key==='ons'?' $':' ₺');}
+  document.querySelectorAll('.dot').forEach((d,idx)=>{d.className='dot'+(idx===i?' active':'');});
+}
+setInterval(()=>heroGo((heroIdx+1)%heroSlides.length),4000);
 
 function setCard(id,buying,selling,prevBuying){
   const card=document.getElementById('card-'+id);
   const buyEl=document.getElementById('buy-'+id);
-  const changeEl=document.getElementById('change-'+id);
+  const chgEl=document.getElementById('change-'+id);
   if(!card||!buying)return;
   const dec=id==='ons'?2:0;
   if(buyEl)buyEl.textContent=(id==='ons'?'$ ':'')+fmt(buying,dec)+(id!=='ons'?' ₺':'');
   if(prevBuying){
     const diff=buying-prevBuying,pct=(diff/prevBuying*100).toFixed(2),up=diff>=0;
-    if(changeEl){changeEl.textContent=(up?'▲ +':'▼ ')+fmt(Math.abs(diff),dec)+' ('+(up?'+':'')+pct+'%)';changeEl.className='product-change '+(up?'up':'down');}
-    if(buyEl){buyEl.style.color=up?'#4CAF50':'#EF5350';}
-    card.classList.remove('flash-up','flash-down');
-    void card.offsetWidth;
+    if(chgEl){chgEl.textContent=(up?'▲ +':'▼ ')+fmt(Math.abs(diff),dec)+' ('+(up?'+':'')+pct+'%)';chgEl.className='pcard-chg '+(up?'up':'down');}
+    if(buyEl)buyEl.className='pcard-price '+(up?'up':'down');
+    card.classList.remove('flash-up','flash-down');void card.offsetWidth;
     card.classList.add(up?'flash-up':'flash-down');
   }
+  // Hero güncelle
+  if(heroSlides[heroIdx].key===id)document.getElementById('hero-live-val').textContent=fmt(buying,dec)+(id==='ons'?' $':' ₺');
 }
 
 function setForex(id,val,prevVal){
@@ -499,7 +483,7 @@ function setForex(id,val,prevVal){
   if(prevVal){
     const diff=val-prevVal,up=diff>=0;
     const el=document.getElementById(id+'-chg');
-    if(el){el.textContent=(up?'▲ +':'▼ ')+fmt(Math.abs(diff),4);el.className='forex-chg '+(up?'up':'down');}
+    if(el){el.textContent=(up?'▲ +':'▼ ')+fmt(Math.abs(diff),4);el.className='fcard-chg '+(up?'up':'down');}
   }
 }
 
@@ -508,27 +492,22 @@ function applyPrices(p){
     if(!p[key])return;
     prev[key]=cur[key];cur[key]=p[key].buying;
     setCard(key,p[key].buying,p[key].selling,prev[key]);
-    const dec=key==='ons'?2:0;
-    setBand(key,p[key].buying,prev[key],dec);
   });
-  if(p.usd){setForex('usd',p.usd.buying,prev['_usd']);setBand('usd',p.usd.buying,prev['_usd'],4);prev['_usd']=p.usd.buying;}
-  if(p.eur){setForex('eur',p.eur.buying,prev['_eur']);setBand('eur',p.eur.buying,prev['_eur'],4);prev['_eur']=p.eur.buying;}
+  if(p.usd){setForex('usd',p.usd.buying,prev['_usd']);prev['_usd']=p.usd.buying;}
+  if(p.eur){setForex('eur',p.eur.buying,prev['_eur']);prev['_eur']=p.eur.buying;}
   if(p.gbp){setForex('gbp',p.gbp.buying,prev['_gbp']);prev['_gbp']=p.gbp.buying;}
   if(p.ons)document.getElementById('xau-val').textContent=fmt(p.ons.buying,2);
-  document.getElementById('error-bar').style.display='none';
+  buildTicker(p);
+  checkAlarms();
 }
 
 async function updateAll(){
   try{
     const res=await fetch(BASE+'/api/prices');
     const data=await res.json();
-    if(!data.success)throw new Error('Veri alınamadı');
+    if(!data.success)throw new Error();
     applyPrices(data.prices);
-  }catch(e){
-    const bar=document.getElementById('error-bar');
-    bar.style.display='block';
-    bar.textContent='⚠ Sunucuya bağlanılamadı — '+e.message;
-  }
+  }catch(e){}
 }
 
 function connectLive(){
@@ -556,10 +535,8 @@ function renderAlarms(){
   if(!alarms.length){list.innerHTML='';return;}
   list.innerHTML=alarms.map(a=>`
     <div class="alarm-item">
-      <div>
-        <div class="alarm-info">${typeLabels[a.type]} ${a.cond==='above'?'↑ üstüne çıkarsa':'↓ altına düşerse'} — ${fmt(a.price)} ₺</div>
-        <div class="alarm-time">${new Date(a.id).toLocaleTimeString('tr-TR')} kuruldu</div>
-      </div>
+      <div><div class="alarm-info">${typeLabels[a.type]} ${a.cond==='above'?'↑':'↓'} ${fmt(a.price)} ₺</div>
+      <div class="alarm-time">${new Date(a.id).toLocaleTimeString('tr-TR')} kuruldu</div></div>
       <button class="btn-del" onclick="deleteAlarm(${a.id})">Sil</button>
     </div>`).join('');
 }
@@ -568,22 +545,22 @@ function checkAlarms(){
     if(triggered.has(a.id))return;
     const val=cur[a.type];if(!val)return;
     if(a.cond==='above'?val>=a.price:val<=a.price){
-      triggered.add(a.id);
-      showToast('🔔 ALARM!',typeLabels[a.type]+' → '+fmt(val,2)+' ₺');
+      triggered.add(a.id);showToast('🔔 ALARM!',typeLabels[a.type]+' → '+fmt(val,2)+' ₺');
     }
   });
 }
 
 let toastTimer;
-function showToast(title,msg){
+function showToast(t,m){
   clearTimeout(toastTimer);
-  document.getElementById('toast-title').textContent=title;
-  document.getElementById('toast-msg').textContent=msg;
-  const t=document.getElementById('toast');
-  t.classList.add('show');
-  toastTimer=setTimeout(()=>t.classList.remove('show'),3500);
+  document.getElementById('toast-title').textContent=t;
+  document.getElementById('toast-msg').textContent=m;
+  const el=document.getElementById('toast');
+  el.classList.add('show');
+  toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
 }
-
+function scrollToProducts(){document.getElementById('urunler').scrollIntoView({behavior:'smooth'})}
+function scrollToAlarm(){document.getElementById('alarm').scrollIntoView({behavior:'smooth'})}
 function manualRefresh(){
   const btn=document.getElementById('refresh-btn');
   btn.classList.add('spinning');
